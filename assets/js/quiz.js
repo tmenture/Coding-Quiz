@@ -49,33 +49,33 @@
  // Object for Questions and Answers (true/false)
  const questions = [
      {
-         question:"",
-         answers:[],
-         correctAnswer:""
+         question:"When a user views a page containing a JavaScript program, which machine actually executes the script?",
+         answers:["1. The User's machine runing the browser", "2. The web server", "3. A central machine deep within NetScape's corporate offices", "4. None of the above"],
+         correctAnswer:"1"
      },
 
      {
-        question:"",
-        answers:[],
-        correctAnswer:""
+        question:"______ JavaScript is also called client-side JavaScript",
+        answers:["1. Microsoft", "2. Navigator", "3. LiveWire", "4. Native"],
+        correctAnswer:"2"
     },
 
     {
-        question:"",
-        answers:[],
-        correctAnswer:""
+        question:"__________ JavaScript is also called server-side JavaScript.",
+        answers:["1. Microsoft", "2. Navigator", "3. LiveWire", "4. Native"],
+        correctAnswer:"3"
     },
 
     {
-        question:"",
-        answers:[],
-        correctAnswer:""
+        question:"What are variables used for in JavaScript Programs?",
+        answers:["1. Storing numbers, dates, or other values", "2. Varying Randomly", "3. Causing high-school algebra flashbacks", "4. None of the above"],
+        correctAnswer:"1"
     },
 
     {
-        question:"",
-        answers:[],
-        correctAnswer:""
+        question:"_____ JavaScript statements embedded in an HTML page can respond to user events such as mouse-clicks, form input, and page navigation.",
+        answers:["1. Client-side", "2. Server-side", "3. Local", "4. Native"],
+        correctAnswer:"1"
     }
  ];
 
