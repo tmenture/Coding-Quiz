@@ -94,6 +94,16 @@ function setTime() {
     }, 1000);
 }
 
+// This function is to start the quiz
+function startQuiz () {
+    introEl.style.display = "none";
+    questionEl.style.display = "block";
+    questionCount = 0;
+
+    setTime();
+    setQuestion(questionCount);
+}
+
 // This function is to set the questions, it also takes count and displays the next question/answers
 function setQuestion(id) {
     if (id < questions.length) {
