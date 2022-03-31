@@ -1,2 +1,36 @@
+* {
+    font-family: 'Times New Roman', Times, serif;
+}
 
+html, body {
+    height: 100%;
+}
 
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main content */
+main {
+    flex: 1 0 auto;
+}
+
+/* Hides questions until click events trigger them to show */
+#questions,
+#final,
+#highscores,
+#yaynay {
+    display: none;
+}
+
+/* Styling for answer buttons */
+.ansBtn,
+.ansBtn:hover,
+.ansBtn:active,
+.ansBtn:focus,
+.ansBtn:active:focus {
+    box-shadow: none;
+    outline: none;
+    background-color: #28a745;
+}
