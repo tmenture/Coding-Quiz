@@ -82,14 +82,14 @@
 // Timer Function (this function subtracts 1 second from the timer, and when the time is equal to zero, or we run out of questions it displays final score)
 function setTime() {
     let timerInterval = setInterval(function () {
-        secondsLeft--;
-        timeEl.textContent = `Time:${secondsLeft}s`;
+        secondsRemain--;
+        timeEl.textContent = `Time:${secondsRemain}s`;
 
-        if(secondsLeft === 0 || questionCount === questions.length) {
+        if(secondsRemain === 0 || questionCount === questions.length) {
             clearInterval(timerInterval);
             questionsEl.style.display = "none";
             finalEl.style.display = "block";
-            scoreEl.textContent = secondsLeft;
+            scoreEl.textContent = secondsRemain;
         }
     }, 1000);
 }
@@ -124,7 +124,7 @@ function checkAnswer(event) {
         p.textContent = "Correct!";
     }
     else if (questions[questionCount].correctAnswer !== event.target.value) {
-        secondsLeft = secondsLeft - 10;
+        secondsRemain = secondsRemain - 10;
         p.textContent = "Wrong!";
     }
 
@@ -145,7 +145,7 @@ function addScore(event) {
     highScoresEl.style.display = "block";
 
     let init = initialsInput.value.toUpperCase();
-    scoreList.push({initials: init, score: secondsLeft});
+    scoreList.push({initials: init, score: secondsRemain});
 
     scoreList = scoreList.sort((a,b) => {
         if (a.score < b.score) {
@@ -186,3 +186,38 @@ function clearScores () {
     localStorage.clear();
     scoreListEl.innerHTML = "";
 }
+
+// These are the event listeners to trigger the functions
+// For starting the quiz
+startBtn.addEventListener("click", startQuiz);
+
+// For checking answer loop
+ansBtn.forEach(item => {
+    item.addEventListener('click', checkAnswer);
+});
+
+// Button for adding the score
+submitScrBtn.addEventListener("click", addScore);
+
+// Button that allows user to go back
+goBackBtn.addEventListener("click", function () {
+    highScoresEl.style.display = "none";
+    introEl.style.display = "block";
+    secondsRemain = 75;
+    timeEl.textContent = `Time:${secondsRemain}s`;
+});
+
+// Button that allows user toi clear previous scores
+clearScrBtn.addEventListener("click", clearScores);
+
+// This button allows user to veiw or hide high scores
+viewSrcBtn.addEventListener("click", function() {
+    if (highScoresEl.style.display === "none") {
+        highScoresEl.style.display = "block";
+    }
+    else if (highScoresEl.style.display === "block") {
+        highScoresEl.style.display = "none";
+    } else {
+        return alert("You have no high scores at this time.");
+    }
+});
