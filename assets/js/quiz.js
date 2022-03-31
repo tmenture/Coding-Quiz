@@ -11,7 +11,7 @@
  const questionsEl = document.querySelector("#questions");
 
  // Location of question
- let questionEl = documennt.querySelector("#question");
+ let questionEl = document.querySelector("#question");
 
  // How many questions user has answered 
  let questionCount = 0;
@@ -97,7 +97,7 @@ function setTime() {
 // This function is to set the questions, it also takes count and displays the next question/answers
 function setQuestion(id) {
     if (id < questions.length) {
-        questionEl.textContent = question[id].question;
+        questionEl.textContent = questions[id].question;
         ans1Btn.textContent = questions[id].answers[0];
         ans2Btn.textContent = questions[id].answers[1];
         ans3Btn.textContent = questions[id].answers[2];
@@ -128,7 +128,7 @@ function checkAnswer(event) {
         p.textContent = "Wrong!";
     }
 
-    // Cycles through the questions index by increasing it by one
+    // Cycles through the questions by increasing its index by one
     if (questionCount < questions.Lenght){
         questionCount++;
     }
@@ -138,3 +138,31 @@ function checkAnswer(event) {
 }
 
 // Function for adding scores to the highscores list
+function addScore(event) {
+    event.preventDefault();
+
+    finalEl.style.display = "none";
+    highScoresEl.style.display = "block";
+
+    let init = initialsInput.value.toUpperCase();
+    scoreList.push({initials: init, score: secondsLeft});
+
+    scoreList = scoreList.sort((a,b) => {
+        if (a.score < b.score) {
+            return 1;
+        } else {
+            return -1;
+        }
+    });
+
+    scoreList.innerHTML = "";
+    for (let i = 0; i < scoreList.length; i++) {
+        let li = document.createElement("li");
+        li.textContent = `${scoreList[i].initials}: ${scoreList[i].score}`;
+        scoreListEl.append(li);
+    }
+
+    storeScores();
+    displayScores();
+}
+
