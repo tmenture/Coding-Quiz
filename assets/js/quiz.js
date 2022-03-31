@@ -166,3 +166,23 @@ function addScore(event) {
     displayScores();
 }
 
+// Function to store scores in local storage
+function storeScores () {
+    localStorage.setItem("scoreList", JSON.stringify(scoreList));
+}
+
+// Function to display high scores (getting them from JSON sting using JSON parse)
+function displayScores () {
+    let storedScoreList = JSON.parse(localStorage.getItem("scoreList"));
+
+    // If previous scores exist, this updates the scoreList array and adds new scores
+    if (storedScoreList !== null) {
+        scoreList = storedScoreList;
+    }
+}
+
+// This function provides the user the option to clear their scores
+function clearScores () {
+    localStorage.clear();
+    scoreListEl.innerHTML = "";
+}
