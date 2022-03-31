@@ -1,5 +1,5 @@
- // Time and Score variables 
  // Using 'const' and 'let' variables to distinguish between identifiers that won't be reassigned and ones that might)
+ // Time and Score variables 
  let timeEl = document.querySelector("p.time");
  let secondsRemain = 75;
  let scoreEl = document.querySelector("#score");
@@ -36,7 +36,7 @@
 
  // Start, Answer, Submit, Back-Up, Clear Score, and View Score Buttons
  const startBtn = document.querySelector("#start");
- const ansBtn = document.querySelector("button.ansBtn");
+ const ansBtn = document.querySelectorAll("button.ansBtn");
  const ans1Btn = document.querySelector("#answer1");
  const ans2Btn = document.querySelector("#answer2");
  const ans3Btn = document.querySelector("#answer3");
@@ -95,9 +95,9 @@ function setTime() {
 }
 
 // This function is to start the quiz
-function startQuiz () {
+function startQuiz() {
     introEl.style.display = "none";
-    questionEl.style.display = "block";
+    questionsEl.style.display = "block";
     questionCount = 0;
 
     setTime();
