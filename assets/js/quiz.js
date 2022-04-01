@@ -48,34 +48,30 @@
 
  // Object for Questions and Answers (true/false)
  const questions = [
-     {
-         question:"When a user views a page containing a JavaScript program, which machine actually executes the script?",
-         answers:["1. The User's machine runing the browser", "2. The web server", "3. A central machine deep within NetScape's corporate offices", "4. None of the above"],
-         correctAnswer:"1"
-     },
-
-     {
-        question:"______ JavaScript is also called client-side JavaScript",
-        answers:["1. Microsoft", "2. Navigator", "3. LiveWire", "4. Native"],
-        correctAnswer:"2"
-    },
-
     {
-        question:"__________ JavaScript is also called server-side JavaScript.",
-        answers:["1. Microsoft", "2. Navigator", "3. LiveWire", "4. Native"],
-        correctAnswer:"3"
+        question: "When a user views a page containing a JavaScript program, which machine actually executes the script?",
+        answers: ["1. The User's machine runing the browser", "2. The web server", "3. A central machine deep within NetScape's corporate offices", "4. None of the above"],
+        correctAns: "0"
     },
-
     {
-        question:"What are variables used for in JavaScript Programs?",
-        answers:["1. Storing numbers, dates, or other values", "2. Varying Randomly", "3. Causing high-school algebra flashbacks", "4. None of the above"],
-        correctAnswer:"1"
+        question: "______ JavaScript is also called client-side JavaScript",
+        answers: ["1. Microsoft", "2. Navigator", "3. LiveWire", "4. Native"],
+        correctAns: "1"
     },
-
     {
-        question:"_____ JavaScript statements embedded in an HTML page can respond to user events such as mouse-clicks, form input, and page navigation.",
-        answers:["1. Client-side", "2. Server-side", "3. Local", "4. Native"],
-        correctAnswer:"1"
+        question: "__________ JavaScript is also called server-side JavaScript.",
+        answers: ["1. Microsoft", "2. Navigator", "3. LiveWire", "4. Native"],
+        correctAns: "2"
+    },
+    {
+        question: "What are variables used for in JavaScript Programs?",
+        answers: ["1. Storing numbers, dates, or other values", "2. Varying Randomly", "3. Causing high-school algebra flashbacks", "4. None of the above"],
+        correctAns: "0"
+    },
+    {
+        question: "_____ JavaScript statements embedded in an HTML page can respond to user events such as mouse-clicks, form input, and page navigation.",
+        answers: ["1. Client-side", "2. Server-side", "3. Local", "4. Native"],
+        correctAns: "0"
     }
  ];
 
@@ -115,36 +111,36 @@ function setQuestion(id) {
     }
 }
 
-// This function checks the answer and then moves to the next question
+// Function that checks for the correct answer 
 function checkAnswer(event) {
     event.preventDefault();
 
-    // Shows yaynay section with Correct of Incorrect displayed 
+    // Shows the correct or wrong text display after answer is given
     yaynayEl.style.display = "block";
     let p = document.createElement("p");
     yaynayEl.appendChild(p);
 
-    // Sets time out after 1 second
-    setTimeout(function (){
+    // Removes the text content just created after 1 second
+    setTimeout(function () {
         p.style.display = 'none';
     }, 1000);
 
-    // Answer checker
-    if (questions[questionCount].correctAnswer === event.target.value) {
+    // This if / else if statement checks if the correct answer has been selected or not
+    if(questions[questionCount].correctAns === event.target.value) {
+        secondsRemain = secondsRemain + 5;
         p.textContent = "Correct!";
-    }
-    else if (questions[questionCount].correctAnswer !== event.target.value) {
+        
+    } else if(questions[questionCount].correctAns !== event.target.value) {
         secondsRemain = secondsRemain - 10;
         p.textContent = "Wrong!";
     }
 
-    // Cycles through the questions by increasing its index by one
-    if (questionCount < questions.Lenght){
+    // Increases the question count index for rotation
+    if (questionCount < questions.length) {
         questionCount++;
     }
-
-    // Calling back setQuestion to bring in the next question when an answer button is clicked
-    setQuestion(questionCount); 
+    // Calls setQuestion to bring in the next question
+    setQuestion(questionCount);
 }
 
 // Function for adding scores to the highscores list
@@ -165,7 +161,7 @@ function addScore(event) {
         }
     });
 
-    scoreList.innerHTML = "";
+    scoreListEl.innerHTML = "";
     for (let i = 0; i < scoreList.length; i++) {
         let li = document.createElement("li");
         li.textContent = `${scoreList[i].initials}: ${scoreList[i].score}`;
@@ -203,7 +199,7 @@ startBtn.addEventListener("click", startQuiz);
 
 // For checking answer loop
 ansBtn.forEach(item => {
-    item.addEventListener('click', checkAnswer);
+    item.addEventListener("click", checkAnswer);
 });
 
 // Button for adding the score
