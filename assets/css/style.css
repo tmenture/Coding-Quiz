@@ -9,6 +9,9 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
+    background-image: url("https://st6.cannypic.com/thumbs/44/445945_632_canny_pic.jpg");
+    background-size: 100%;
+    color: snow;
 }
 
 /* Main content */
