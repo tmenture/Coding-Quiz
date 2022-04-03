@@ -16,14 +16,14 @@
  // How many questions user has answered 
  let questionCount = 0;
 
- // Correct or Incorrect text display after question is answered (yesNo) 
- const yesNoEl = document.querySelector("#yesNo");
+ // Correct or Incorrect text display after question is answered (yaynay)
+ const yaynayEl = document.querySelector("#yaynay");
 
  // Final Section
  const finalEl = document.querySelector("#final");
 
- // Takes user's Initials
- let signatureInput = document.querySelector("#initials");
+ // User's Initials
+ let initialsInput = document.querySelector("#initials");
 
  // High Score Section
  const highScoresEl = document.querySelector("#highscores");
@@ -116,9 +116,9 @@ function checkAnswer(event) {
     event.preventDefault();
 
     // Shows the correct or wrong text display after answer is given
-    yesNoEl.style.display = "block";
+    yaynayEl.style.display = "block";
     let p = document.createElement("p");
-    yesNoEl.appendChild(p);
+    yaynayEl.appendChild(p);
 
     // Removes the text content just created after 1 second
     setTimeout(function () {
@@ -150,7 +150,7 @@ function addScore(event) {
     finalEl.style.display = "none";
     highScoresEl.style.display = "block";
 
-    let init = signatureInput.value.toUpperCase();
+    let init = initialsInput.value.toUpperCase();
     scoreList.push({initials: init, score: secondsRemain});
 
     scoreList = scoreList.sort((a,b) => {
