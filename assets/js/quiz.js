@@ -16,14 +16,14 @@
  // How many questions user has answered 
  let questionCount = 0;
 
- // Correct or Incorrect text display after question is answered (yaynay)
- const yaynayEl = document.querySelector("#yaynay");
+ // Correct or Incorrect text display after question is answered (yesNo)
+ const yesNoEl = document.querySelector("#yesNo");
 
  // Final Section
  const finalEl = document.querySelector("#final");
 
  // User's Initials
- let initialsInput = document.querySelector("#initials");
+ let signitureInput = document.querySelector("#initials");
 
  // High Score Section
  const highScoresEl = document.querySelector("#highscores");
@@ -41,36 +41,36 @@
  const ans2Btn = document.querySelector("#answer2");
  const ans3Btn = document.querySelector("#answer3");
  const ans4Btn = document.querySelector("#answer4");
- const submitScrBtn = document.querySelector("#submit-score");
+ const submitBtn = document.querySelector("#submit-score");
  const goBackBtn = document.querySelector("#goback");
- const clearScrBtn = document.querySelector("#clearscores");
- const viewSrcBtn = document.querySelector("#view-scores");
+ const clearBtn = document.querySelector("#clearscores");
+ const viewBtn = document.querySelector("#view-scores");
 
  // Object for Questions and Answers (true/false)
  const questions = [
     {
         question: "When a user views a page containing a JavaScript program, which machine actually executes the script?",
-        answers: ["1. The User's machine runing the browser", "2. The web server", "3. A central machine deep within NetScape's corporate offices", "4. None of the above"],
+        answers: ["A. The User's machine runing the browser", "B. The web server", "C. A central machine deep within NetScape's corporate offices", "D. None of the above"],
         correctAns: "0"
     },
     {
         question: "______ JavaScript is also called client-side JavaScript",
-        answers: ["1. Microsoft", "2. Navigator", "3. LiveWire", "4. Native"],
+        answers: ["A. Microsoft", "B. Navigator", "C. LiveWire", "D. Native"],
         correctAns: "1"
     },
     {
         question: "__________ JavaScript is also called server-side JavaScript.",
-        answers: ["1. Microsoft", "2. Navigator", "3. LiveWire", "4. Native"],
+        answers: ["A. Microsoft", "B. Navigator", "C. LiveWire", "D. Native"],
         correctAns: "2"
     },
     {
         question: "What are variables used for in JavaScript Programs?",
-        answers: ["1. Storing numbers, dates, or other values", "2. Varying Randomly", "3. Causing high-school algebra flashbacks", "4. None of the above"],
+        answers: ["A. Storing numbers, dates, or other values", "B. Varying Randomly", "C. Causing high-school algebra flashbacks", "D. None of the above"],
         correctAns: "0"
     },
     {
         question: "_____ JavaScript statements embedded in an HTML page can respond to user events such as mouse-clicks, form input, and page navigation.",
-        answers: ["1. Client-side", "2. Server-side", "3. Local", "4. Native"],
+        answers: ["A. Client-side", "B. Server-side", "C. Local", "D. Native"],
         correctAns: "0"
     }
  ];
@@ -116,9 +116,9 @@ function checkAnswer(event) {
     event.preventDefault();
 
     // Shows the correct or wrong text display after answer is given
-    yaynayEl.style.display = "block";
+    yesNoEl.style.display = "block";
     let p = document.createElement("p");
-    yaynayEl.appendChild(p);
+    yesNoEl.appendChild(p);
 
     // Removes the text content just created after 1 second
     setTimeout(function () {
@@ -150,7 +150,7 @@ function addScore(event) {
     finalEl.style.display = "none";
     highScoresEl.style.display = "block";
 
-    let init = initialsInput.value.toUpperCase();
+    let init = signitureInput.value.toUpperCase();
     scoreList.push({initials: init, score: secondsRemain});
 
     scoreList = scoreList.sort((a,b) => {
@@ -203,7 +203,7 @@ ansBtn.forEach(item => {
 });
 
 // Button for adding the score
-submitScrBtn.addEventListener("click", addScore);
+submitBtn.addEventListener("click", addScore);
 
 // Button that allows user to go back
 goBackBtn.addEventListener("click", function () {
@@ -214,10 +214,10 @@ goBackBtn.addEventListener("click", function () {
 });
 
 // Button that allows user toi clear previous scores
-clearScrBtn.addEventListener("click", clearScores);
+clearBtn.addEventListener("click", clearScores);
 
 // This button allows user to veiw or hide high scores
-viewSrcBtn.addEventListener("click", function() {
+viewBtn.addEventListener("click", function() {
     if (highScoresEl.style.display === "none") {
         highScoresEl.style.display = "block";
     }
