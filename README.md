@@ -14,7 +14,7 @@ A fun quiz to test ones knowledge of JavaScript.
 https://tmenture.github.io/Coding-Quiz/
 
 ## Image of Deployed Project
-![Snapshot](https://tmenture.github.io/Coding-Quiz/assets/images/quiz-screen-shot.png)
+![Snapshot](https://tmenture.github.io/Coding-Quiz/assets/images/screen-shot.png)
 
 ## Contribution 
 Made By Thomas 
